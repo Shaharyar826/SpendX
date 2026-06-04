@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.spendx.controller.ExpensesController"
+            prefWidth="860" prefHeight="580"
+            style="-fx-background-color: #1e1e2e;">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-background-color: #181825; -fx-padding: 14 20;">
+            <Label text="Expenses" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #cba6f7;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back" onAction="#goBack" style="-fx-background-color: #45475a; -fx-text-fill: #cdd6f4; -fx-background-radius: 6;"/>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20;">
+            <!-- Add Expense Form -->
+            <VBox spacing="10" prefWidth="300">
+                <Label text="Add New Expense" style="-fx-text-fill: #a6adc8;"/>
+                <TextField fx:id="titleField" promptText="Expense title"
+                           style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-prompt-text-fill: #6c7086; -fx-background-radius: 6; -fx-padding: 8;"/>
+                <TextField fx:id="amountField" promptText="Total amount (Rs.)"
+                           style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-prompt-text-fill: #6c7086; -fx-background-radius: 6; -fx-padding: 8;"/>
+                <ComboBox fx:id="categoryCombo" maxWidth="Infinity"
+                          style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-background-radius: 6;"/>
+                <TextArea fx:id="notesArea" promptText="Notes (optional)" prefRowCount="3"
+                          style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-prompt-text-fill: #6c7086; -fx-background-radius: 6;"/>
+                <Label text="Select Participants (Ctrl+Click)" style="-fx-text-fill: #a6adc8; -fx-font-size: 11;"/>
+                <ListView fx:id="participantsList" prefHeight="140"
+                          style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+                <Button text="Add Expense &amp; Split Equally" onAction="#addExpense" maxWidth="Infinity"
+                        style="-fx-background-color: #cba6f7; -fx-text-fill: #1e1e2e; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 10;"/>
+            </VBox>
+
+            <!-- Expense History -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Expense History" style="-fx-text-fill: #a6adc8;"/>
+                <ListView fx:id="expensesList" VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <Label fx:id="statusLabel" style="-fx-text-fill: #fab387; -fx-padding: 8 20;" text=""/>
+    </bottom>
+</BorderPane>

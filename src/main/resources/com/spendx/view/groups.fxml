@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.spendx.controller.GroupsController"
+            prefWidth="800" prefHeight="560"
+            style="-fx-background-color: #1e1e2e;">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-background-color: #181825; -fx-padding: 14 20;">
+            <Label text="Groups" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #cba6f7;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← Back" onAction="#goBack" style="-fx-background-color: #45475a; -fx-text-fill: #cdd6f4; -fx-background-radius: 6;"/>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20;">
+            <!-- Create Group -->
+            <VBox spacing="10" prefWidth="220">
+                <Label text="Create Group" style="-fx-text-fill: #a6adc8;"/>
+                <TextField fx:id="groupNameField" promptText="Group name"
+                           style="-fx-background-color: #313244; -fx-text-fill: #cdd6f4; -fx-prompt-text-fill: #6c7086; -fx-background-radius: 6; -fx-padding: 8;"/>
+                <Button text="Create" onAction="#createGroup" maxWidth="Infinity"
+                        style="-fx-background-color: #cba6f7; -fx-text-fill: #1e1e2e; -fx-background-radius: 6;"/>
+                <Label text="My Groups" style="-fx-text-fill: #a6adc8; -fx-padding: 8 0 0 0;"/>
+                <ListView fx:id="groupsList" VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+            </VBox>
+
+            <!-- Members -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Group Members" style="-fx-text-fill: #a6adc8;"/>
+                <ListView fx:id="membersList" VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+                <Button text="Remove Selected Member" onAction="#removeMemberFromGroup"
+                        style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e; -fx-background-radius: 6;"/>
+            </VBox>
+
+            <!-- Add Friend to Group -->
+            <VBox spacing="10" prefWidth="220">
+                <Label text="Add Friend to Group" style="-fx-text-fill: #a6adc8;"/>
+                <ListView fx:id="friendsList" VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+                <Button text="Add to Selected Group" onAction="#addMemberToGroup" maxWidth="Infinity"
+                        style="-fx-background-color: #a6e3a1; -fx-text-fill: #1e1e2e; -fx-background-radius: 6;"/>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <Label fx:id="statusLabel" style="-fx-text-fill: #fab387; -fx-padding: 8 20;" text=""/>
+    </bottom>
+</BorderPane>

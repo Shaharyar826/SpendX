@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.spendx.controller.DashboardController"
+            prefWidth="800" prefHeight="560"
+            style="-fx-background-color: #1e1e2e;">
+
+    <!-- Top Nav -->
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT"
+              style="-fx-background-color: #181825; -fx-padding: 14 20;">
+            <Label text="Spendx" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #cba6f7;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Friends"    onAction="#goToFriends"  style="-fx-background-color: transparent; -fx-text-fill: #cdd6f4;"/>
+            <Button text="Groups"     onAction="#goToGroups"   style="-fx-background-color: transparent; -fx-text-fill: #cdd6f4;"/>
+            <Button text="Expenses"   onAction="#goToExpenses" style="-fx-background-color: transparent; -fx-text-fill: #cdd6f4;"/>
+            <Button text="Reports"    onAction="#goToReports"  style="-fx-background-color: transparent; -fx-text-fill: #cdd6f4;"/>
+            <Button text="Logout"     onAction="#handleLogout" style="-fx-background-color: #f38ba8; -fx-text-fill: #1e1e2e; -fx-background-radius: 6;"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox spacing="16" style="-fx-padding: 24;">
+            <Label fx:id="welcomeLabel" style="-fx-font-size: 18; -fx-text-fill: #cdd6f4;"/>
+            <Label fx:id="balanceLabel" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+            <HBox spacing="20">
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="Recent Expenses" style="-fx-text-fill: #a6adc8; -fx-font-size: 13;"/>
+                    <ListView fx:id="recentExpensesList" prefHeight="200"
+                              style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+                </VBox>
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="Notifications" style="-fx-text-fill: #a6adc8; -fx-font-size: 13;"/>
+                    <ListView fx:id="notificationsList" prefHeight="200"
+                              style="-fx-background-color: #313244; -fx-control-inner-background: #313244; -fx-text-fill: #cdd6f4;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
